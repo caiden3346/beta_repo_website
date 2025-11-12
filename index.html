@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R.E.P.O. - New Player Guide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>R.E.P.O. SURVIVAL GUIDE</h1>
+        <p class="tagline">Your Essential Guide to Surviving the Repository - by <a href="https://gameinsight.info">Game Insight</a></p>
+    </header>
+
+    <nav>
+        <button class="nav-btn active" onclick="showSection('gameplay')">How to Play</button>
+        <button class="nav-btn" onclick="showSection('monsters')">Monsters</button>
+        <button class="nav-btn" onclick="showSection('maps')">Map Layouts</button>
+        <button class="nav-btn" onclick="showSection('upgrades')">Upgrades</button>
+    </nav>
+
+    <div class="container">
+        <!-- Gameplay Section -->
+        <div id="gameplay" class="section active">
+            <div class="card">
+                <h3>🎮 Welcome to RE.P.O.</h3>
+                <p>RE.P.O. (Repository) is a survival horror game where you must collect items while avoiding deadly monsters. Master the mechanics to increase your chances of survival.</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>📋 Objective</h3>
+                    <p>Your goal is to locate and collect specific items scattered throughout the facility while avoiding or outsmarting the hostile entities that roam the halls.</p>
+                    <div class="tip-box">
+                        <strong>Pro Tip:</strong> Always plan your escape route before collecting an item!
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>🎯 Core Mechanics</h3>
+                    <div class="stat">
+                        <span class="stat-label">Movement</span>
+                        <span class="stat-value">WASD / Arrow Keys</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Sprint</span>
+                        <span class="stat-value">Shift (Limited Stamina)</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Interact</span>
+                        <span class="stat-value">E Key</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Crouch</span>
+                        <span class="stat-value">Ctrl (Quieter Movement)</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>⚡ Survival Tips</h3>
+                    <ul style="list-style-position: inside; line-height: 1.8;">
+                        <li>Listen carefully for audio cues</li>
+                        <li>Use lockers to hide from monsters</li>
+                        <li>Manage your stamina wisely</li>
+                        <li>Work with teammates in multiplayer</li>
+                        <li>Learn monster behavior patterns</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monsters Section -->
+        <div id="monsters" class="section">
+            <input type="text" class="search-box" id="monsterSearch" placeholder="🔍 Search monsters by name or type..." onkeyup="searchMonsters()">
+            
+            <div id="monsterList" class="card-grid">
+                <div class="card monster-card" data-name="screamer" data-type="aggressive fast">
+                    <h3>👹 Screamer</h3>
+                    <span class="tag">Aggressive</span>
+                    <span class="tag">Fast</span>
+                    <div class="stat">
+                        <span class="stat-label">Threat Level</span>
+                        <span class="stat-value danger-high">EXTREME</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Speed</span>
+                        <span class="stat-value">Very Fast</span>
+                    </div>
+                    <p style="margin-top: 1rem;">A relentless hunter that emits ear-piercing screams. Will chase players on sight with incredible speed.</p>
+                    <div class="tip-box">
+                        <strong>Counter:</strong> Hide immediately when you hear its scream. Do not try to outrun it.
+                    </div>
+                </div>
+
+                <div class="card monster-card" data-name="lurker" data-type="stealth ambush">
+                    <h3>🕷️ Lurker</h3>
+                    <span class="tag">Stealth</span>
+                    <span class="tag">Ambush</span>
+                    <div class="stat">
+                        <span class="stat-label">Threat Level</span>
+                        <span class="stat-value danger-medium">HIGH</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Speed</span>
+                        <span class="stat-value">Medium</span>
+                    </div>
+                    <p style="margin-top: 1rem;">Hides in dark corners and attacks unsuspecting players. Nearly invisible until it moves.</p>
+                    <div class="tip-box">
+                        <strong>Counter:</strong> Use your flashlight to scan dark areas before entering. Listen for breathing sounds.
+                    </div>
+                </div>
+
+                <div class="card monster-card" data-name="stalker" data-type="tracking persistent">
+                    <h3>👤 Stalker</h3>
+                    <span class="tag">Tracking</span>
+                    <span class="tag">Persistent</span>
+                    <div class="stat">
+                        <span class="stat-label">Threat Level</span>
+                        <span class="stat-value danger-high">EXTREME</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Speed</span>
+                        <span class="stat-value">Fast</span>
+                    </div>
+                    <p style="margin-top: 1rem;">Follows players silently and attacks when they're alone. Can track you through multiple rooms.</p>
+                    <div class="tip-box">
+                        <strong>Counter:</strong> Stay with your team. The Stalker avoids groups of players.
+                    </div>
+                </div>
+
+                <div class="card monster-card" data-name="wanderer" data-type="patrol random">
+                    <h3>🚶 Wanderer</h3>
+                    <span class="tag">Patrol</span>
+                    <span class="tag">Random</span>
+                    <div class="stat">
+                        <span class="stat-label">Threat Level</span>
+                        <span class="stat-value danger-medium">MODERATE</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Speed</span>
+                        <span class="stat-value">Slow</span>
+                    </div>
+                    <p style="margin-top: 1rem;">Patrols hallways in unpredictable patterns. Relatively easy to avoid if spotted early.</p>
+                    <div class="tip-box">
+                        <strong>Counter:</strong> Watch for its flashlight. Crouch and move quietly when nearby.
+                    </div>
+                </div>
+
+                <div class="card monster-card" data-name="mimic" data-type="trap deceptive">
+                    <h3>📦 Mimic</h3>
+                    <span class="tag">Trap</span>
+                    <span class="tag">Deceptive</span>
+                    <div class="stat">
+                        <span class="stat-label">Threat Level</span>
+                        <span class="stat-value danger-high">HIGH</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Speed</span>
+                        <span class="stat-value">N/A</span>
+                    </div>
+                    <p style="margin-top: 1rem;">Disguises itself as loot or items. Attacks when players attempt to interact with it.</p>
+                    <div class="tip-box">
+                        <strong>Counter:</strong> Look for subtle movements or unusual placements. Check items carefully.
+                    </div>
+                </div>
+
+                <div class="card monster-card" data-name="swarm" data-type="group overwhelming">
+                    <h3>🦟 Swarm</h3>
+                    <span class="tag">Group</span>
+                    <span class="tag">Overwhelming</span>
+                    <div class="stat">
+                        <span class="stat-label">Threat Level</span>
+                        <span class="stat-value danger-medium">MODERATE</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Speed</span>
+                        <span class="stat-value">Fast</span>
+                    </div>
+                    <p style="margin-top: 1rem;">Small flying creatures that attack in large numbers, obscuring vision and dealing damage over time.</p>
+                    <div class="tip-box">
+                        <strong>Counter:</strong> Sprint through them or find alternate routes. Don't stop in swarm areas.
+                    </div>
+                </div>
+            </div>
+            <div id="noMonstersFound" class="no-results" style="display: none;">
+                No monsters found matching your search.
+            </div>
+        </div>
+
+        <!-- Maps Section -->
+        <div id="maps" class="section">
+            <div class="card">
+                <h3>🗺️ Facility Layouts</h3>
+                <p>Learn the layout of each map to plan optimal routes and find safe hiding spots.</p>
+            </div>
+
+            <div class="card">
+                <h3>Level 1: Research Wing</h3>
+                <span class="tag">Beginner Friendly</span>
+                <span class="tag">Linear Layout</span>
+                <div class="map-container">
+                    <div class="map-grid">
+                        <div class="map-cell danger-low">Entrance</div>
+                        <div class="map-cell danger-low">Main Hall</div>
+                        <div class="map-cell danger-medium">Lab A</div>
+                        <div class="map-cell danger-medium">Lab B</div>
+                        <div class="map-cell danger-low">Storage</div>
+                        <div class="map-cell danger-high">Exit</div>
+                    </div>
+                </div>
+                <div class="tip-box" style="margin-top: 1rem;">
+                    <strong>Key Locations:</strong> Safe rooms in Main Hall and Storage. Avoid Lab B during late game.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Level 2: Underground Complex</h3>
+                <span class="tag">Intermediate</span>
+                <span class="tag">Multiple Paths</span>
+                <div class="map-container">
+                    <div class="map-grid">
+                        <div class="map-cell danger-medium">North Tunnel</div>
+                        <div class="map-cell danger-high">Central Hub</div>
+                        <div class="map-cell danger-medium">South Tunnel</div>
+                        <div class="map-cell danger-low">Generator Room</div>
+                        <div class="map-cell danger-high">Dark Sector</div>
+                        <div class="map-cell danger-medium">Maintenance</div>
+                        <div class="map-cell danger-low">Control Room</div>
+                        <div class="map-cell danger-high">Extraction</div>
+                    </div>
+                </div>
+                <div class="tip-box" style="margin-top: 1rem;">
+                    <strong>Strategy:</strong> Use tunnels for quick escapes. Generator Room is the safest hideout.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Level 3: Containment Breach</h3>
+                <span class="tag">Expert</span>
+                <span class="tag">High Danger</span>
+                <span class="tag">Complex Maze</span>
+                <div class="map-container">
+                    <div class="map-grid">
+                        <div class="map-cell danger-high">Cell Block A</div>
+                        <div class="map-cell danger-high">Cell Block B</div>
+                        <div class="map-cell danger-high">Cell Block C</div>
+                        <div class="map-cell danger-medium">Security Office</div>
+                        <div class="map-cell danger-high">Observation Deck</div>
+                        <div class="map-cell danger-medium">Cafeteria</div>
+                        <div class="map-cell danger-high">Isolation Wing</div>
+                        <div class="map-cell danger-medium">Medical Bay</div>
+                        <div class="map-cell danger-high">Breach Point</div>
+                    </div>
+                </div>
+                <div class="tip-box" style="margin-top: 1rem;">
+                    <strong>Warning:</strong> Multiple high-threat entities spawn here. Medical Bay and Security Office offer temporary safety.
+                </div>
+            </div>
+        </div>
+
+        <!-- Upgrades Section -->
+        <div id="upgrades" class="section">
+            <div class="card">
+                <h3>⚡ Character Upgrades</h3>
+                <p>Spend your earned credits on permanent upgrades to improve your survival chances.</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>🏃 Sprint Enhancement</h3>
+                    <div class="stat">
+                        <span class="stat-label">Cost per Level</span>
+                        <span class="stat-value">500 Credits</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Max Level</span>
+                        <span class="stat-value">5</span>
+                    </div>
+                    <div class="upgrade-path">
+                        <strong>Progression:</strong>
+                        <p>Lv1: +10% Sprint Duration<br>
+                        Lv2: +20% Sprint Duration<br>
+                        Lv3: +30% Sprint Duration<br>
+                        Lv4: +40% Sprint Duration<br>
+                        Lv5: +50% Sprint Duration + Faster Regen</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>🔦 Flashlight Power</h3>
+                    <div class="stat">
+                        <span class="stat-label">Cost per Level</span>
+                        <span class="stat-value">400 Credits</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Max Level</span>
+                        <span class="stat-value">5</span>
+                    </div>
+                    <div class="upgrade-path">
+                        <strong>Progression:</strong>
+                        <p>Lv1: +15% Battery Life<br>
+                        Lv2: +30% Battery Life<br>
+                        Lv3: +50% Battery Life<br>
+                        Lv4: +70% Battery Life + Brightness<br>
+                        Lv5: +100% Battery Life + Wide Beam</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>👂 Enhanced Hearing</h3>
+                    <div class="stat">
+                        <span class="stat-label">Cost per Level</span>
+                        <span class="stat-value">600 Credits</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Max Level</span>
+                        <span class="stat-value">3</span>
+                    </div>
+                    <div class="upgrade-path">
+                        <strong>Progression:</strong>
+                        <p>Lv1: Hear monsters from farther away<br>
+                        Lv2: Visual directional indicators<br>
+                        Lv3: Monster proximity alerts</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>🎒 Inventory Space</h3>
+                    <div class="stat">
+                        <span class="stat-label">Cost per Level</span>
+                        <span class="stat-value">700 Credits</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Max Level</span>
+                        <span class="stat-value">4</span>
+                    </div>
+                    <div class="upgrade-path">
+                        <strong>Progression:</strong>
+                        <p>Lv1: 4 Item Slots → 5 Slots<br>
+                        Lv2: 5 Slots → 6 Slots<br>
+                        Lv3: 6 Slots → 7 Slots<br>
+                        Lv4: 7 Slots → 8 Slots + Quick Access</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>🛡️ Health Boost</h3>
+                    <div class="stat">
+                        <span class="stat-label">Cost per Level</span>
+                        <span class="stat-value">800 Credits</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Max Level</span>
+                        <span class="stat-value">5</span>
+                    </div>
+                    <div class="upgrade-path">
+                        <strong>Progression:</strong>
+                        <p>Lv1: +20% Max Health<br>
+                        Lv2: +40% Max Health<br>
+                        Lv3: +60% Max Health<br>
+                        Lv4: +80% Max Health<br>
+                        Lv5: +100% Max Health + Resist Damage</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>🤫 Stealth Movement</h3>
+                    <div class="stat">
+                        <span class="stat-label">Cost per Level</span>
+                        <span class="stat-value">550 Credits</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Max Level</span>
+                        <span class="stat-value">4</span>
+                    </div>
+                    <div class="upgrade-path">
+                        <strong>Progression:</strong>
+                        <p>Lv1: 10% Quieter Movement<br>
+                        Lv2: 25% Quieter + Faster Crouch<br>
+                        Lv3: 40% Quieter + No Sprint Noise<br>
+                        Lv4: 60% Quieter + Nearly Silent</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>💡 Upgrade Tips</h3>
+                <div class="tip-box">
+                    <strong>Recommended Build for Beginners:</strong> Focus on Sprint Enhancement and Health Boost first for better survival odds.
+                </div>
+                <div class="tip-box">
+                    <strong>Stealth Build:</strong> Max Stealth Movement and Enhanced Hearing to avoid monsters entirely.
+                </div>
+                <div class="tip-box">
+                    <strong>Speed Runner Build:</strong> Sprint Enhancement + Inventory Space to grab items quickly and escape.
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
